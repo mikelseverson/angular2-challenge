@@ -7,13 +7,19 @@ import { Box } from './box';
   styleUrls: ['./day-2.component.css']
 })
 export class Day2Component implements OnInit {
-  public boxes: Box[] = [];
+  public boxes: Box[];
+
   generateCircle() {
+    if(this.boxes.length >= 35) {
+      this.boxes = [];
+    }
     let box = new Box();
     this.boxes.push(box);
   }
 
-  constructor() {}
+  constructor() {
+    this.boxes = [];
+  }
 
   ngOnInit() {
   }
