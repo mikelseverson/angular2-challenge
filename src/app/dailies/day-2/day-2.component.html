@@ -1,0 +1,7 @@
+<div class="flex-item header">Day 2</div>
+<div (click)="generateCircle()"class="flex-item main">Click Me!</div>
+<div class="flex-item box" *ngFor='let value of boxes'></div>
+<div class="flex-item footer">See you Tomorrow!</div>
+<div *ngIf="boxes.length > 15" class="flex-item footer">PLEASE STOP PRESSING THE BUTTON!</div>
+<div *ngIf="boxes.length > 30" class="flex-item footer">🏳 I concede 🏳</div>
+
