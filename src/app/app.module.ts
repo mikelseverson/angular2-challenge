@@ -4,14 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { Day1Component, Day2Component, Day3Component } from './dailies/index';
+import { Day1Component, 
+         Day2Component, 
+         Day3Component, 
+         Day4Component, 
+         Day5Component} from './dailies/index';
 
 @NgModule({
   declarations: [
     AppComponent,
     Day1Component,
     Day2Component,
-    Day3Component
+    Day3Component,
+    Day4Component,
+    Day5Component
   ],
   imports: [
     BrowserModule,
