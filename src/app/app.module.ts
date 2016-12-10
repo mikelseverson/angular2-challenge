@@ -10,8 +10,8 @@ import { Day1Component,
          Day4Component, 
          Day5Component,
          Day6Component} from './dailies/index';
-         
-import { AngularFireModule } from 'angularfire2';
+
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCAThvlKvEXqy0nM6oQPm_wLLZdCpIQzUM",
@@ -20,6 +20,11 @@ export const firebaseConfig = {
   storageBucket: "particlesensor.appspot.com",
   messagingSenderId: "748694046544"
 };
+
+const myFirebaseAuthConfig = {
+  provider: AuthProviders.Google,
+  method: AuthMethods.Redirect
+}
 
 @NgModule({
   declarations: [
@@ -35,7 +40,7 @@ export const firebaseConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

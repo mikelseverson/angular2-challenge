@@ -14,6 +14,7 @@ export class Day6Component implements OnInit {
   constructor(public af: AngularFire) { 
     this.currentList = af.database.list('/current');
     this.currentObject = af.database.object('/current');
+    this.af.auth.subscribe(auth => console.log(auth));
   }
 
   ngOnInit() { }
@@ -30,6 +31,11 @@ export class Day6Component implements OnInit {
   deleteEverything() {
     this.currentList.remove();
   }
+  login() {
+    this.af.auth.login();
+  }
+  logout() {
+    this.af.auth.logout();
   }
 
 }
