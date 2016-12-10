@@ -7,16 +7,29 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable, AuthProv
   styleUrls: ['./day-6.component.css']
 })
 export class Day6Component implements OnInit {
-  constructor(af: AngularFire) { 
 
   currentList: FirebaseListObservable<any[]>;
   currentObject: FirebaseObjectObservable<any>;
 
+  constructor(public af: AngularFire) { 
     this.currentList = af.database.list('/current');
     this.currentObject = af.database.object('/current');
   }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  addItem(newName: string) {
+    this.currentList.push({ text: newName });
+  }
+  updateItem(key: string, newText: string) {
+    this.currentList.update(key, { text: newText });
+  }
+  deleteItem(key: string) {    
+    this.currentList.remove(key); 
+  }
+  deleteEverything() {
+    this.currentList.remove();
+  }
   }
 
 }
