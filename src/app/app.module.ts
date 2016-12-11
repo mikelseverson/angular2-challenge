@@ -11,6 +11,8 @@ import { Day1Component,
          Day5Component,
          Day6Component} from './dailies/index';
 
+import { AuthModule, SignInComponent, AuthService } from './auth/index';
+
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 export const firebaseConfig = {
@@ -34,7 +36,8 @@ const myFirebaseAuthConfig = {
     Day3Component,
     Day4Component,
     Day5Component,
-    Day6Component
+    Day6Component,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ const myFirebaseAuthConfig = {
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
