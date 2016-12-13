@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable, AuthProviders, AuthMethods } from 'angularfire2';
+import { AuthService } from '../../auth/services/auth-service'
 
 @Component({
   selector: 'app-day-6',
@@ -11,10 +12,9 @@ export class Day6Component implements OnInit {
   currentList: FirebaseListObservable<any[]>;
   currentObject: FirebaseObjectObservable<any>;
 
-  constructor(public af: AngularFire) { 
+  constructor(private af: AngularFire, private auth: AuthService) { 
     this.currentList = af.database.list('/current');
     this.currentObject = af.database.object('/current');
-    this.af.auth.subscribe(auth => console.log(auth));
   }
 
   ngOnInit() { }
@@ -31,11 +31,4 @@ export class Day6Component implements OnInit {
   deleteEverything() {
     this.currentList.remove();
   }
-  login() {
-    this.af.auth.login();
-  }
-  logout() {
-    this.af.auth.logout();
-  }
-
 }

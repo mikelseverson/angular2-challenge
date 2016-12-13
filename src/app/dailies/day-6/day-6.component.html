@@ -16,6 +16,6 @@
 <input type="text" #newitem />
 <button (click)="addItem(newitem.value)">Add</button>
 <button (click)="deleteEverything()">Delete All</button>
-<div> {{ (af.auth | async)?.uid }} </div>
-<button (click)="login()" *ngIf="!(af.auth | async)?.uid">Login</button>
-<button (click)="logout()" *ngIf="(af.auth | async)?.uid">Logout</button>
+<div> {{ auth.id }} </div>
+<button (click)="login()" *ngIf="!auth.authenticated">Login</button>
+<button (click)="logout()" *ngIf="auth.authenticated">Logout</button>
